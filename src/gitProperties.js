@@ -2,11 +2,7 @@ import fs from "fs";
 import {
   getBranch,
   getCommitId,
-  getCommitUserName,
-  getCommitUserEmail,
-  getCommitMessageFull,
-  getCommitMessageShort,
-  getCommitTime
+  getTag
 } from "./gitCommands";
 
 /**
@@ -22,39 +18,22 @@ export const write = destinationPath => {
     const gitPromises = [
       getBranch(),
       getCommitId(),
-      getCommitUserName(),
-      getCommitUserEmail(),
-      getCommitMessageFull(),
-      getCommitMessageShort(),
-      getCommitTime()
+      getTag()
     ];
 
     Promise.all(gitPromises).then(
       ([
         branch,
         commitId,
-        commitUserName,
-        commitUserEmail,
-        commitMessageFull,
-        commitMessageShort,
-        commitTime
+        tag
       ]) => {
         const gitProperties = {
           git: {
             commit: {
-              message: {
-                full: commitMessageFull.replace(/(?:\r\n|\r|\n)/g, "\\n"),
-                short: commitMessageShort
-              },
-              time: commitTime,
-              id: commitId,
-              abbrevId: commitId.substring(0, 7),
-              user: {
-                email: commitUserEmail,
-                name: commitUserName
-              }
+              id: commitId
             },
-            branch: branch
+            branch: branch,
+            tag: tag
           }
         };
 
