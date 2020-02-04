@@ -1,15 +1,15 @@
 {
-  "name": "vue-git-info-json-example",
-  "version": "1.2.2",
+  "name": "vue-git-info-json",
+  "version": "0.1.4",
   "homepage": "https://github.com/danieljunco/node-git-info-json",
   "repository": {
     "url": "https://github.com/danieljunco/node-git-info-json"
   },
   "author": "Jim Moody <jimsmoody@gmail.com>",
-  "main": "dist/vue-git-info-json-example.cjs.js",
-  "module": "dist/vue-git-info-json-example.esm.js",
+  "main": "dist/vue-git-info-json.cjs.js",
+  "module": "dist/vue-git-info-json.esm.js",
   "bin": {
-    "vue-git-info-json-example": "bin/vue-git-info-json-example"
+    "vue-git-info-json": "bin/vue-git-info-json"
   },
   "dependencies": {
     "child-process-promise": "2.2.0",
@@ -28,5 +28,8 @@
     "test": "node test/test.js",
     "pretest": "npm run build"
   },
-  "files": ["dist", "bin"]
+  "files": [
+    "dist",
+    "bin"
+  ]
 }
