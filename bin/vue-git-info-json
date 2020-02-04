@@ -1,3 +1,3 @@
 #!/usr/bin/env node
 
-require("../dist/node-git-info-json.cjs.js");
+require("../dist/vue-git-info-json.cjs.js");
